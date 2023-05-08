@@ -22,5 +22,6 @@ urlpatterns = [
     path(URL + 'auth/', include("accounts.urls")),
     path(URL, include("main.urls")),
     path(URL + 'patient/', include('patient.urls')),
-    path(URL + 'medical_practitioner/',include('medicalpractitioner.urls'))
+    path(URL + 'medical_practitioner/',include('medicalpractitioner.urls')),
+    path(URL + 'appointment/', include("appointment.urls"))
 ]

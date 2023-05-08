@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Book Appoiment for {{medical_practitioner.first_name}}</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{form.as_p}}
+              
+        </div>
+        <button type="submit">Book</button>
+    </form>
+{% endblock%}

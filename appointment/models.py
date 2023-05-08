@@ -12,10 +12,11 @@ class Status(models.Choices):
 
 class Appointment(models.Model):
     patient = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='appointments')
-    medical_practioner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='appointment')
-    date_time = models.DateTimeField(default=timezone.now)
+    medical_practitioner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='appointment')
+    date = models.DateField(default=timezone.now)
+    time = models.TimeField(default=timezone.now)
     status = models.CharField(choices=Status.choices, default="PENDING", max_length=10)
-    message = models.TextField(blank=True)
+    reason = models.TextField(blank=True)
 
     def __str__(self) -> str:
-        return f"{self.patient} - {self.medical_practioner}  - {self.date_time.strftime('%d/%m/%Y %H/%M')}"
+        return f"{self.patient} - {self.medical_practitioner}  - "

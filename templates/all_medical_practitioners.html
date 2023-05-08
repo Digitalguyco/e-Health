@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> all patients</h1>
+
+{% for object in object_list %}
+<p>{{object}} is a {{object.job_title}} loacted in {{object.loaction}} <button><a href="{% url 'book_appointment' object.medical_practitioner.id %}">Book Appoint</a></button></p>
+
+{% endfor %}
+{% endblock%} 
