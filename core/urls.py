@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 URL = 'app/'
+
+def home(request):
+    """Handle default request."""
+    return redirect("/app/")
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(URL + 'auth/', include("accounts.urls")),
