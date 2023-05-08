@@ -25,6 +25,7 @@ def home(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home, name="redirect_to_app")
     path(URL + 'auth/', include("accounts.urls")),
     path(URL, include("main.urls")),
     path(URL + 'patient/', include('patient.urls')),
